@@ -1,0 +1,9 @@
+{
+  "manifestVersion": 1,
+  "id": "plugin-examples",
+  "version": "1.0.0",
+  "name": "Plugin Examples",
+  "description": "Showcase of every visual component the Scalpel plugin SDK ships, plus a hotkey to copy and inspect the hovered item.",
+  "author": "scalpelpoe",
+  "scalpelMinVersion": ">=0.0.0"
+}
