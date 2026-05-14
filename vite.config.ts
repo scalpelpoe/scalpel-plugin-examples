@@ -12,7 +12,14 @@ export default defineConfig({
     },
     rollupOptions: {
       // Scalpel injects these at runtime via importmap.
-      external: ['react', 'react-dom', 'react-dom/client', 'react/jsx-runtime', '@filterscalpel/plugin-sdk'],
+      external: [
+        'react',
+        'react-dom',
+        'react-dom/client',
+        'react-dom/server',
+        'react/jsx-runtime',
+        '@scalpelpoe/plugin-sdk',
+      ],
     },
     minify: 'esbuild',
     sourcemap: true,

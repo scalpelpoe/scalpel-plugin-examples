@@ -1,5 +1,7 @@
 import { createRoot, type Root } from 'react-dom/client'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { useEffect, useState } from 'react'
+import { DocDetail } from '@icon-park/react'
 import {
   // Identity / data helpers
   isClusterJewel,
@@ -39,9 +41,8 @@ import {
   ExternalLinkButton,
   type ScalpelPluginContext,
   type PoeItem,
-} from '@filterscalpel/plugin-sdk'
+} from '@scalpelpoe/plugin-sdk'
 
-const ICON_SVG = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`
 
 function Section({ title, children }: { title: string; children: React.ReactNode }): JSX.Element {
   return (
@@ -50,7 +51,6 @@ function Section({ title, children }: { title: string; children: React.ReactNode
         marginTop: 16,
         padding: 12,
         background: 'rgba(255,255,255,0.04)',
-        border: '1px solid var(--border, rgba(255,255,255,0.08))',
         borderRadius: 6,
       }}
     >
@@ -394,7 +394,9 @@ export default function activate(ctx: ScalpelPluginContext): void {
 
   ctx.registerTab({
     label: 'Plugin Examples',
-    icon: ICON_SVG,
+    icon: renderToStaticMarkup(
+      <DocDetail theme="two-tone" fill={['currentColor', 'rgba(255,255,255,0.2)']} />,
+    ),
     render: (container) => {
       root = createRoot(container)
       root.render(<ExamplesPanel ctx={ctx} />)

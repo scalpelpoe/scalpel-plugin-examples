@@ -1,6 +1,6 @@
 # scalpel-plugin-examples
 
-A showcase plugin for [Scalpel](https://github.com/scalpelpoe/scalpel) demonstrating every visual component shipped by the `@filterscalpel/plugin-sdk`. Use the source as a copy-paste reference when building your own plugin.
+A showcase plugin for [Scalpel](https://github.com/scalpelpoe/scalpel) demonstrating every visual component shipped by the `@scalpelpoe/plugin-sdk`. Use the source as a copy-paste reference when building your own plugin.
 
 ## What it shows
 
