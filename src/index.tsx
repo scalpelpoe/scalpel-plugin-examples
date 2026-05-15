@@ -27,8 +27,9 @@ import {
   Slider,
   Label,
   // Specialised inputs
-  StepInput,
+  ScrubInput,
   ItemChip,
+  InfoChip,
   // Settings rows
   SettingToggleBox,
   SettingSelectBox,
@@ -167,7 +168,7 @@ function ExamplesPanel({ ctx }: { ctx: ScalpelPluginContext }): JSX.Element {
   const [textValue, setTextValue] = useState('Bow of the Mists')
   const [textareaValue, setTextareaValue] = useState('Multi-line notes\nLine two')
   const [slider, setSlider] = useState(35)
-  const [stepValue, setStepValue] = useState<number | null>(120)
+  const [scrubValue, setScrubValue] = useState<number | null>(120)
   const [settingToggle, setSettingToggle] = useState(true)
   const [settingSelect, setSettingSelect] = useState<'a' | 'b' | 'c'>('b')
   const [league, setLeague] = useState('Standard')
@@ -238,14 +239,10 @@ function ExamplesPanel({ ctx }: { ctx: ScalpelPluginContext }): JSX.Element {
           />
           <span style={{ fontSize: 11, color: 'var(--text-dim, #888)' }}>{slider}</span>
         </Row>
-        <Row label="StepInput">
-          <StepInput
-            value={stepValue}
-            placeholder="0"
-            onChange={(v) => setStepValue(v === '' ? null : Number(v))}
-          />
+        <Row label="ScrubInput">
+          <ScrubInput value={scrubValue} onChange={setScrubValue} placeholder="0" suffix="c" />
           <span style={{ fontSize: 11, color: 'var(--text-dim, #888)' }}>
-            hover for +/- ticks
+            click-drag or scroll to scrub the value
           </span>
         </Row>
       </Section>
@@ -281,6 +278,10 @@ function ExamplesPanel({ ctx }: { ctx: ScalpelPluginContext }): JSX.Element {
         <Row label="ItemChip">
           <ItemChip name="Mirror of Kalandra" onClick={() => ctx.log('chip click')} />
           <ItemChip name="The Doctor" itemClass="Divination Cards" />
+        </Row>
+        <Row label="InfoChip">
+          <InfoChip label="Price" size="sm">42c</InfoChip>
+          <InfoChip label="Tier" color="var(--accent, #8af)">S</InfoChip>
         </Row>
         <Row label="ExternalLinkButton">
           <ExternalLinkButton

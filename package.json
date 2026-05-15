@@ -9,8 +9,8 @@
     "deploy": "npm run build && xcopy /Y /I dist\\* \"%APPDATA%\\Scalpel\\plugins\\plugin-examples\\\""
   },
   "dependencies": {
-    "@scalpelpoe/plugin-sdk": "^0.1.0",
     "@icon-park/react": "^1.4.2",
+    "@scalpelpoe/plugin-sdk": "^0.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
